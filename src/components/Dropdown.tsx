@@ -122,7 +122,7 @@ const Dropdown = ({
         <Button
           type="button"
           className={cn(
-            "w-full pl-4 py-2.5 text-sm border rounded-md focus:outline-none text-left min-h-[40px] bg-white",
+            "w-full pl-4 py-2.5 text-sm border-2 border-teal-700 rounded-md focus:outline-none text-left min-h-[40px] bg-white",
             buttonClass
           )}
           onClick={() => {
@@ -181,7 +181,7 @@ const Dropdown = ({
         <div
           id="dropdown-list"
           className={cn(
-            "absolute w-full bg-white border rounded-lg z-50 overflow-hidden transition-all duration-200",
+            "absolute w-full bg-white border border-teal-700 rounded-lg z-50 overflow-hidden transition-all duration-200",
             "shadow-2xl"
           )}
           style={{ top: "100%", marginTop: 4, maxHeight: 300 }}
@@ -191,7 +191,7 @@ const Dropdown = ({
           ref={dropdownList}>
           {searchable && (
             <div
-              className="sticky top-0 p-2 bg-white border-b w-full z-10"
+              className="sticky top-0 p-2 bg-teal-700 border-b w-full z-10"
               onClick={(e) => e.stopPropagation()}
               onKeyDown={(e) => e.stopPropagation()}>
               <Input
@@ -200,7 +200,7 @@ const Dropdown = ({
                 placeholder="Search..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-3 py-2 text-sm border rounded focus:outline-none"
+                className="w-full px-3 py-2 text-sm border-none rounded focus:outline-none bg-white"
                 aria-label="Search options"
                 role="searchbox"
                 onKeyDown={handleKeyDown}
@@ -220,9 +220,9 @@ const Dropdown = ({
                   type="button"
                   key={`${item.value}`}
                   className={cn(
-                    "w-full hover:font-semibold text-left px-4 py-2 text-sm transition-colors",
+                    "w-full hover:text-teal-700 text-left px-4 py-2 text-sm transition-colors",
                     selectedIndex === index || value == item.value
-                      ? "font-semibold"
+                      ? "text-teal-700"
                       : ""
                   )}
                   role="option"

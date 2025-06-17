@@ -7,6 +7,7 @@ import type {
   BarangOption,
 } from "./types";
 import Form from "./components/Form";
+import shipImg from "./assets/ships.png";
 
 function App() {
   const [negara, setNegara] = useState<number | null>(null);
@@ -130,25 +131,46 @@ function App() {
   const total = Math.round(harga * (1 - (diskon || 0) / 100));
 
   return (
-    <Form
-      negara={negara}
-      pelabuhan={pelabuhan}
-      barang={barang}
-      negaraOptions={negaraOptions}
-      pelabuhanOptions={pelabuhanOptions}
-      barangOptions={barangOptions}
-      desc={desc}
-      harga={harga}
-      diskon={diskon}
-      total={total}
-      error={error}
-      onNegaraChange={handleNegaraChange}
-      onPelabuhanChange={handlePelabuhanChange}
-      onBarangChange={handleBarangChange}
-      onDiskonChange={handleDiskonChange}
-      onHargaChange={handleHargaChange}
-      onDescChange={handleDescChange}
-    />
+    <div className="w-screen h-screen flex flex-col md:flex-row">
+      <div className="md:w-1/3 w-full md:h-full bg-teal-700 flex flex-col p-0 relative overflow-hidden">
+        <img
+          src={shipImg}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        <div className="absolute inset-0 bg-teal-800/20 z-10" />
+        <div className="relative z-20 flex flex-col h-full justify-end items-start p-10">
+          <h1 className="text-3xl md:text-4xl 2xl:text-6xl font-bold text-white mb-4 drop-shadow-lg bg-teal-700 p-4 rounded-md 2xl:leading-20">
+            Shipping Details
+          </h1>
+          <p className="text-md md:text-lg 2xl:text-xl text-white font-medium drop-shadow-lg bg-teal-700 p-4 rounded-md">
+            Complete the form to input your shipping information. All fields are
+            required.
+          </p>
+        </div>
+      </div>
+      <div className="flex-1 h-2/3 md:h-full flex items-center justify-center bg-white p-6 md:p-20">
+        <Form
+          negara={negara}
+          pelabuhan={pelabuhan}
+          barang={barang}
+          negaraOptions={negaraOptions}
+          pelabuhanOptions={pelabuhanOptions}
+          barangOptions={barangOptions}
+          desc={desc}
+          harga={harga}
+          diskon={diskon}
+          total={total}
+          error={error}
+          onNegaraChange={handleNegaraChange}
+          onPelabuhanChange={handlePelabuhanChange}
+          onBarangChange={handleBarangChange}
+          onDiskonChange={handleDiskonChange}
+          onHargaChange={handleHargaChange}
+          onDescChange={handleDescChange}
+        />
+      </div>
+    </div>
   );
 }
 
