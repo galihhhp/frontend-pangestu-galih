@@ -131,8 +131,8 @@ function App() {
   const total = Math.round(harga * (1 - (diskon || 0) / 100));
 
   return (
-    <div className="w-screen h-screen flex flex-col md:flex-row">
-      <div className="md:w-1/3 w-full md:h-full bg-teal-700 flex flex-col p-0 relative overflow-hidden">
+    <div className="w-screen min-h-screen flex flex-col md:flex-row">
+      <div className="md:w-1/3 w-full md:min-h-full bg-teal-700 flex flex-col p-0 relative overflow-hidden">
         <img
           src={shipImg}
           alt=""
@@ -149,7 +149,7 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="flex-1 h-2/3 md:h-full flex items-center justify-center bg-white p-6 md:p-20">
+      <div className="flex-1 min-h-2/3 md:min-h-full flex items-center justify-center bg-white p-6 md:p-20">
         <Form
           negara={negara}
           pelabuhan={pelabuhan}
